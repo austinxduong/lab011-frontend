@@ -1,9 +1,16 @@
 .Header {
   padding: 20px;
   border-bottom: 1px solid lightgray;
+  background-color: cornsilk;
 }
 
 h1 {
   font-size: 2rem;
-  font-weight: bold;
+  color: gray;
+  font-weight: initial;
+  text-align: center;
+}
+
+.active {
+  color: grey;
 }

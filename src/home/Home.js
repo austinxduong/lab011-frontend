@@ -4,12 +4,18 @@ import './Home.css';
 
 export default class Home extends Component {
   
+  handleClick = () => {
+    const { history } = this.props;
+    history.push('cats/42');
+  }
   render() {
     return (
       <div className="Home">
         <h2>Home Page</h2>
 
-        <Link to='/resources'>See the List</Link>
+        <Link to='/cats'>See the List</Link>
+
+        
       </div>
     );
   }

@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Home from '../home/Home';
+import CatsPage from '../cats/CatsPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -9,6 +10,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import './App.css';
+import CatDetailPage from '../cat/CatsDetailPage';
 
 class App extends Component {
 
@@ -26,15 +28,15 @@ class App extends Component {
                 )}
               />
 
-              <Route path="/resources" exact={true}
+              <Route path="/cats" exact={true}
                 render={routerProps => (
-                  <div>Implement a page of resources</div>
+                  <CatsPage {...routerProps}/>
                 )}
               />
 
-              <Route path="/resources/:id"
+              <Route path="/cats/:id"
                 render={routerProps => (
-                  <div>Implement a page for id {routerProps.match.params.id}</div>
+                  <CatDetailPage {...routerProps}/>
                 )}
               />
 

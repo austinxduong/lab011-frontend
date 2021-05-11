@@ -15,7 +15,7 @@ export default class Home extends Component {
 
         <Link to='/cats'>See the List</Link>
 
-        <button onClick={this.handleClick} > Go to Detail 42</button>
+        
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import './CatDetailPage.css';
+import './CatsDetailPage.css';
 import { Component } from 'react';
 import { getCat } from '../utils/resources.api';
 

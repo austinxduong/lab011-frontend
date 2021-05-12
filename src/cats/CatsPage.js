@@ -2,32 +2,39 @@ import { Component } from 'react';
 import { getCats } from '../utils/resources.api';
 import './CatsPage.css';
 import CatList from './CatList';
+import Loader from '../common/Loader';
 
 export default class CatsPage extends Component {
     state = {
-      cats: []
+      cats: [],
+      loading: true
     }
 
     
 
 
     async componentDidMount() {
-      const cats = await getCats();
-      if (cats) {
+      try {
+        const cats = await getCats();
         this.setState({ cats: cats });
       }
-      else {
-           
+      catch (err) {
+
       }
+      finally {
+        this.setState({ loading: false });
+      }
+           
         
     }
 
 
     render() {
-      const { cats } = this.state;
+      const { cats, loading } = this.state;
     
       return (
         <div className="CatsPage">
+          <Loader loading={loading}/>
           <h2>List of Cats</h2>
     
           <CatList cats={cats}/>

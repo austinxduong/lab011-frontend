@@ -9,8 +9,8 @@ class CatItem extends Component {
 
     return (
       <li className="CatItem">
-        <Link to={ `/cats/${cat.id}`}>
-          <h2>{cat.name}</h2>
+        <Link to={`/cats/${cat.id}`}>
+          <h2> {cat.name} </h2>
           <img src={cat.url} alt ={cat.name}/>
           <p>lives: {cat.lives}</p>
         </Link>        

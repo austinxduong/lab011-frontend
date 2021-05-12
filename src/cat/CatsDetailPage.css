@@ -1,3 +1,20 @@
-/* .CatDetail {
+.CatDetail p {
+    text-align: center;
+    font-family: monospace;
+    color:white;
+    margin: 10px;
   
+}
+
+/* .CatDetail h2 {
+    
 } */
+
+.CatDetail img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+border-radius: 40px;
+border: double ;
+border-color: lightsteelblue;
+}

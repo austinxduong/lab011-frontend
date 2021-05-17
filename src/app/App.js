@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import CatDetailPage from '../cat/CatsDetailPage';
+import CatAddPage from '../cat-add/CatAddPage';
 
 class App extends Component {
 
@@ -18,25 +19,31 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Header/>
+          <Header />
           <main>
 
             <Switch>
               <Route path="/" exact={true}
                 render={routerProps => (
-                  <Home {...routerProps}/>
+                  <Home {...routerProps} />
                 )}
               />
 
               <Route path="/cats" exact={true}
                 render={routerProps => (
-                  <CatsPage {...routerProps}/>
+                  <CatsPage {...routerProps} />
                 )}
               />
 
               <Route path="/cats/:id"
                 render={routerProps => (
-                  <CatDetailPage {...routerProps}/>
+                  <CatDetailPage {...routerProps} />
+                )}
+              />
+
+              <Route path="/cats/add" exact={true}
+                render={routerProps => (
+                  <CatAddPage {...routerProps} />
                 )}
               />
 
@@ -44,7 +51,7 @@ class App extends Component {
 
             </Switch>
           </main>
-          <Footer/>
+          <Footer />
         </Router>
       </div>
     );

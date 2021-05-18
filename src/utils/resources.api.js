@@ -18,6 +18,6 @@ export async function addCat(cat) {
 }
 
 export async function deleteCat(id) {
-  const response = await request.delete(`{$URL}/${id}`);
+  const response = await request.delete(`${URL}/${id}`);
   return response.body;
 }

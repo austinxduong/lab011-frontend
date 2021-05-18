@@ -62,6 +62,7 @@ export default class CatDetailPage extends Component {
           <button className="delete" onClick={this.handleDelete}>
             Delete this Cat
           </button>
+          
         </div>
       );
     }

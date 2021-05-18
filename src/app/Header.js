@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
 
-  render() { 
+  render() {
     return (
       <header className="Header">
 
@@ -13,12 +13,13 @@ class Header extends Component {
         <nav>
           <NavLink to="/" exact={true}> Home </NavLink>
           <NavLink to="/cats" exact={true}> See the List </NavLink>
+          <NavLink to="/cats/add">Add Kitty</NavLink>
         </nav>
-        
+
       </header>
     );
   }
 
 }
- 
+
 export default Header;

@@ -1,6 +1,6 @@
 import './CatsDetailPage.css';
 import { Component } from 'react';
-import { getCat } from '../utils/resources.api';
+import { getCat, deleteCat } from '../utils/resources.api';
 
 export default class CatDetailPage extends Component {
     state = {
@@ -10,14 +10,38 @@ export default class CatDetailPage extends Component {
 
     async componentDidMount() {
       const { match } = this.props;
-      const cat = await getCat(match.params.id);
-      if (cat) {
+      try {
+        const cat = await getCat(match.params.id);
         this.setState({ cat: cat });
       }
-      else {
+      catch (err) {
+      }
+      finally {
+        this.setState({ loading: false });
+      }
 
+    
+    }
+
+
+    handleDelete = async () => {
+      const { cat } = this.state;
+      const { history } = this.props;
+  
+      const confirmation = `Are you sure you want to delete ${cat.name}?`;
+  
+      if (!window.confirm(confirmation)) { return; }
+  
+      try {
+        this.setState({ loading : true });
+        await deleteCat(cat.id);
+        history.push('/cats');
+      }
+      catch (err) {
+        this.setState({ loading : false });
       }
     }
+
 
     render() {
       const { cat } = this.state;
@@ -34,6 +58,10 @@ export default class CatDetailPage extends Component {
           <p> Cat lives: {cat.lives}</p>
           <p> Cat year: {cat.year}</p>
           <p> Owner: {cat.userName}</p>
+
+          <button className="delete" onClick={this.handleDelete}>
+            Delete this Cat
+          </button>
         </div>
       );
     }

@@ -1,6 +1,7 @@
 import './CatsDetailPage.css';
 import { Component } from 'react';
 import { getCat, deleteCat } from '../utils/resources.api';
+import { Link } from 'react-router-dom';
 
 export default class CatDetailPage extends Component {
     state = {
@@ -59,10 +60,15 @@ export default class CatDetailPage extends Component {
           <p> Cat year: {cat.year}</p>
           <p> Owner: {cat.userName}</p>
 
+
           <button className="delete" onClick={this.handleDelete}>
             Delete this Cat
           </button>
-          
+
+          <Link to={`/cats/${cat.id}/edit`}>
+            Edit this cat
+          </Link>
+
         </div>
       );
     }

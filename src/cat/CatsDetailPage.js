@@ -10,13 +10,17 @@ export default class CatDetailPage extends Component {
 
     async componentDidMount() {
       const { match } = this.props;
-      const cat = await getCat(match.params.id);
-      if (cat) {
+      try {
+        const cat = await getCat(match.params.id);
         this.setState({ cat: cat });
       }
-      else {
-
+      catch (err) {
       }
+      finally {
+        this.setState({ loading: false });
+      }
+
+    
     }
 
     render() {

@@ -35,17 +35,19 @@ class App extends Component {
                 )}
               />
 
+              <Route path="/cats/add" exact={true}
+                render={routerProps => (
+                  <CatAddPage {...routerProps} />
+                )}
+              />
+
               <Route path="/cats/:id"
                 render={routerProps => (
                   <CatDetailPage {...routerProps} />
                 )}
               />
 
-              <Route path="/cats/add" exact={true}
-                render={routerProps => (
-                  <CatAddPage {...routerProps} />
-                )}
-              />
+
 
               <Redirect to="/" />
 

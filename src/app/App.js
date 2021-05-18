@@ -12,6 +12,7 @@ import {
 import './App.css';
 import CatDetailPage from '../cat/CatsDetailPage';
 import CatAddPage from '../cat-add/CatAddPage';
+import CatEditPage from '../cat-edit/CatEditPage';
 
 class App extends Component {
 
@@ -41,9 +42,16 @@ class App extends Component {
                 )}
               />
 
-              <Route path="/cats/:id"
+              <Route path="/cats/:id" exact={true}
                 render={routerProps => (
                   <CatDetailPage {...routerProps} />
+                )}
+              />
+
+              <Route path="/cats/:id/edit" exact={true}
+                render={routerProps => (
+                  <CatEditPage {...routerProps}/>
+
                 )}
               />
 
